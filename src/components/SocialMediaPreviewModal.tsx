@@ -52,7 +52,7 @@ const SocialMediaPreviewModal: React.FC<SocialMediaPreviewModalProps> = ({
   }, [caption]);
 
   const renderFacebookPreview = () => (
-    <div className="bg-white rounded-lg shadow-lg max-w-[500px] w-full mx-4">
+    <div className="bg-white rounded-lg shadow-lg max-w-[500px] w-full mx-2 sm:mx-4">
       {/* Facebook Header */}
       <div className="p-3 border-b border-gray-200">
         <div className="flex items-center">
@@ -77,8 +77,7 @@ const SocialMediaPreviewModal: React.FC<SocialMediaPreviewModalProps> = ({
           value={caption}
           onChange={(e) => onCaptionChange(e.target.value)}
           placeholder="What's on your mind?"
-          className="w-full text-[15px] text-[#1c1e21] resize-none border-none outline-none bg-transparent leading-5"
-          style={{ minHeight: '20px' }}
+          className="w-full text-[15px] text-[#1c1e21] resize-none border-none outline-none bg-transparent leading-5 min-h-[20px]"
         />
       </div>
 
@@ -88,15 +87,13 @@ const SocialMediaPreviewModal: React.FC<SocialMediaPreviewModalProps> = ({
           <img 
             src={media.preview} 
             alt="Preview" 
-            className="w-full object-cover"
-            style={{ maxHeight: '400px' }}
+            className="w-full object-cover max-h-[400px]"
           />
         ) : (
           <video 
             src={media.preview} 
             controls 
-            className="w-full object-cover"
-            style={{ maxHeight: '400px' }}
+            className="w-full object-cover max-h-[400px]"
           />
         )}
       </div>
@@ -140,7 +137,7 @@ const SocialMediaPreviewModal: React.FC<SocialMediaPreviewModalProps> = ({
   );
 
   const renderInstagramPreview = () => (
-    <div className="bg-white rounded-lg shadow-lg max-w-[400px] w-full mx-4">
+    <div className="bg-white rounded-lg shadow-lg max-w-[400px] w-full mx-2 sm:mx-4">
       {/* Instagram Header */}
       <div className="p-3 border-b border-gray-200">
         <div className="flex items-center justify-between">
@@ -187,8 +184,7 @@ const SocialMediaPreviewModal: React.FC<SocialMediaPreviewModalProps> = ({
             value={caption}
             onChange={(e) => onCaptionChange(e.target.value)}
             placeholder="Write a caption..."
-            className="inline w-full resize-none border-none outline-none bg-transparent leading-5"
-            style={{ minHeight: '20px' }}
+            className="inline w-full resize-none border-none outline-none bg-transparent leading-5 min-h-[20px]"
           />
         </div>
       </div>
@@ -196,14 +192,13 @@ const SocialMediaPreviewModal: React.FC<SocialMediaPreviewModalProps> = ({
   );
 
   const renderYouTubePreview = () => (
-    <div className="bg-white rounded-lg shadow-lg max-w-[720px] w-full mx-4">
+    <div className="bg-white rounded-lg shadow-lg max-w-[720px] w-full mx-2 sm:mx-4">
       {/* YouTube Video Player */}
       <div className="relative bg-black">
         <video 
           src={media.preview} 
           controls 
-          className="w-full"
-          style={{ maxHeight: '405px' }}
+          className="w-full max-h-[405px]"
         />
       </div>
 
@@ -215,8 +210,7 @@ const SocialMediaPreviewModal: React.FC<SocialMediaPreviewModalProps> = ({
             value={caption}
             onChange={(e) => onCaptionChange(e.target.value)}
             placeholder="Video title"
-            className="w-full text-[20px] font-semibold text-[#0f0f0f] resize-none border-none outline-none bg-transparent leading-6"
-            style={{ minHeight: '24px' }}
+            className="w-full text-[20px] font-semibold text-[#0f0f0f] resize-none border-none outline-none bg-transparent leading-6 min-h-[24px]"
           />
         </div>
 
@@ -241,10 +235,10 @@ const SocialMediaPreviewModal: React.FC<SocialMediaPreviewModalProps> = ({
   );
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex flex-col items-center justify-start p-4 pt-8 pb-8 overflow-y-auto">
       <div ref={modalRef} className="relative max-w-[720px] w-full">
         {/* Top Bar */}
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-4 px-2">
           <div className="flex items-center">
             <div className="w-10 h-10 bg-gray-400 rounded-full mr-3"></div>
             <span className="text-white font-medium">Preview Post</span>
@@ -291,7 +285,7 @@ const SocialMediaPreviewModal: React.FC<SocialMediaPreviewModalProps> = ({
         </div>
 
         {/* Preview Content */}
-        <div className="flex justify-center">
+        <div className="flex justify-center w-full">
           {media.type === 'video' ? (
             renderYouTubePreview()
           ) : previewMode === 'facebook' ? (
