@@ -285,7 +285,7 @@ const SocialMediaPreviewModal: React.FC<SocialMediaPreviewModalProps> = ({
               onClick={onClose}
               className="p-2 hover:bg-white/10 rounded-full transition-colors"
             >
-              <X className="w-6 h-6 text-black" />
+              <X className="w-6 h-6 text-white" />
             </button>
           </div>
         </div>
